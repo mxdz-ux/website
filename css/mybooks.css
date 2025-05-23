@@ -1,0 +1,476 @@
+html , body {
+     overflow: hidden;
+}
+* {
+    font-family: monospace;
+}
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #5A3E36;
+    color: white;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+.navbar .logotext {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo {
+    height: 50px;
+    margin-right: 1rem;
+}
+.nav-links {
+    z-index: 1000;
+    display: flex;
+    list-style: none;
+}
+.nav-links li {
+    margin: 0 0.5rem;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+.nav-links a.active,
+.nav-links a:hover {
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 5px;
+}
+.Hamburger {
+    z-index: 1100;
+    position: relative;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.Hamburger .Bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5eee6;
+    margin: 0;
+    padding: 0;
+    color: #4a2f1f;
+    /* Remove any top padding/margin that could cause a gap above navbar */
+}
+
+/* Page Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Page Title */
+.container h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #5c3d2e;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px #dbc5b0;
+}
+
+/* Grid of Book Cards */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Individual Book Card */
+.book-card {
+    background-color: #fff8f0;
+    border: 1px solid #e0cdb8;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(90, 60, 40, 0.15);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Book Cover Image */
+.book-cover {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0cdb8;
+}
+
+/* Book Details */
+.book-details {
+    padding: 20px;
+}
+
+.book-details h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #4b2e1d;
+}
+
+.book-details p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+/* Book Status Styles */
+.status-approved {
+    color: #2d7731;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #c17e00;
+    font-weight: bold;
+}
+
+/* Pending Label */
+.pending-status {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 10px;
+    background-color: #ffe2b5;
+    color: #a86500;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* Return Button */
+.return-btn {
+    margin-top: 12px;
+    background-color: #8b5e3c;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.return-btn:hover {
+    background-color: #6c4329;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #705233;
+}
+
+.empty-state p {
+    font-size: 18px;
+}
+
+.empty-state .btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #a97449;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.empty-state .btn:hover {
+    background-color: #8a5c37;
+}
+
+/* Profile Dashboard Styles */
+.profile-wrapper {
+    display: flex;
+    min-height: 90vh;
+    background: #f9f9fb;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    margin: 40px auto;
+    max-width: 1100px;
+    overflow: hidden;
+    margin-top: 80px; /* To offset the fixed navbar height */
+}
+.profile-sidebar {
+    background: #fff;
+    width: 270px;
+    padding: 40px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #f0f0f0;
+}
+.profile-avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4a2f1f;
+    margin-bottom: 18px;
+}
+.profile-user-info h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #222;
+    text-align: center;
+}
+.profile-email {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 18px;
+    display: block;
+    text-align: center;
+}
+.profile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.profile-nav li {
+    padding: 12px 0 12px 18px;
+    font-size: 1.08rem;
+    color: #888;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s, border 0.2s, background 0.2s;
+}
+.profile-nav li.active, .profile-nav li:hover {
+    color: #4a2f1f;
+    background: #f9eaf4;
+    border-left: 3px solid #4a2f1f;
+}
+.profile-nav li a.profile-logout {
+    color: #d32f2f;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    margin-left: -18px;
+    border: none;
+    background: none;
+    transition: color 0.2s;
+}
+.profile-nav li a.profile-logout:hover {
+    color: #fff;
+    background: #d32f2f;
+    border-radius: 6px;
+    padding-left: 18px;
+}
+.profile-main {
+    flex: 1;
+    padding: 48px 48px 32px 48px;
+    background: #f9f9fb;
+    position: relative;
+    margin-top: 0;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+.profile-header h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #222;
+}
+.profile-progress {
+    display: none !important;
+}
+.profile-form {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    padding: 32px 32px 18px 32px;
+    margin-bottom: 32px;
+    max-width: 520px;
+}
+.profile-form .form-row {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.profile-form label {
+    font-size: 0.98rem;
+    color: #888;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+.profile-form input, .profile-form textarea {
+    padding: 12px;
+    border: 1.5px solid #eee;
+    border-radius: 6px;
+    font-size: 1.08rem;
+    background: #fafafa;
+    color: #222;
+    transition: border 0.2s;
+}
+.profile-form input:focus, .profile-form textarea:focus {
+    border-color: #ff4fa2;
+    outline: none;
+}
+.profile-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+.profile-save-btn {
+    background: #3e2723 !important;
+    color: #fff !important;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.profile-save-btn:hover {
+    background: #5d4037 !important;
+}
+.borrowed-books-section {
+    margin-top: 32px;
+}
+.borrowed-books-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 18px;
+}
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.book-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    padding: 18px 18px 12px 18px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.book-cover {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+.book-details h3 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 4px;
+}
+.book-details p {
+    font-size: 0.98rem;
+    color: #666;
+    margin: 0 0 4px 0;
+}
+.status-approved {
+    color: #43c05a;
+    font-weight: 600;
+}
+.status-pending {
+    color: #ffb300;
+    font-weight: 600;
+}
+.minimalist-profile-info {
+    margin: 40px 0 0 0;
+    padding: 32px 32px 24px 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.profile-info-row {
+    display: absolute;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 1.08rem;
+}
+.profile-info-label {
+    color: #8a5c37;
+    font-weight: 600;
+    min-width: 110px;
+    margin-right: 10px;
+    font-family: monospace;
+}
+.profile-info-value {
+    color: #3e2723;
+    font-family: monospace;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+#edit-profile-btn {
+    margin-top: 18px;
+    align-self: flex-start;
+}
+@media (max-width: 900px) {
+    .profile-wrapper {
+        flex-direction: column;
+        max-width: 98vw;
+    }
+    .profile-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 24px 12px;
+    }
+    .profile-main {
+        padding: 24px 8px 24px 8px;
+    }
+    .profile-form {
+        padding: 18px 8px 12px 8px;
+    }
+    .book-card {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Hide scrollbar but allow scrolling */
+body, html {
+    overflow: auto !important;
+    scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
